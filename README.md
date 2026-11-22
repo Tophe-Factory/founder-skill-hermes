@@ -4,6 +4,10 @@ Founder skill pour Hermes Agent
 
 Version patchée de [Jakeschincariol/founder-skill](https://github.com/Jakeschincariol/founder-skill), adaptée pour [Hermes Agent](https://github.com/NousResearch/hermes-agent) (self-hosted). Licence MIT d'origine conservée.
 
+## Guide débutant
+
+Documentation complète pour démarrer avec Hermes : voir [`docs/wiki/`](docs/wiki/) (Description, Installation, Utilisation, FAQ).
+
 ## Ce qui a changé
 
 - Frontmatter : `argument-hint` supprimé, `version`/`license` ajoutés.
