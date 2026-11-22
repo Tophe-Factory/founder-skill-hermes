@@ -1,56 +1,66 @@
-Founder skill pour Hermes Agent
+# Founder skill pour Hermes Agent
 
-=====================
+> Onze skills qui transforment [Hermes Agent](https://github.com/NousResearch/hermes-agent) en équipe de conseil, pour tester un business **avant** de le lancer : board d'administration, éclaireur concurrentiel, panel d'acheteurs simulés, directeur financier, marketing complet.
 
-Version patchée de [Jakeschincariol/founder-skill](https://github.com/Jakeschincariol/founder-skill), adaptée pour [Hermes Agent](https://github.com/NousResearch/hermes-agent) (self-hosted). Licence MIT d'origine conservée.
+Version adaptée pour Hermes (self-hosted) de [Jakeschincariol/founder-skill](https://github.com/Jakeschincariol/founder-skill) — conçu à l'origine pour Claude Code. Licence MIT d'origine conservée.
 
-## Guide débutant
+📖 **Guide complet pour débutants** : consultez le [wiki du dépôt](https://github.com/Tophe-Factory/founder-skill-hermes/wiki) (Description, Installation, Utilisation, FAQ).
 
-Documentation complète pour démarrer avec Hermes : voir [`docs/wiki/`](docs/wiki/) (Description, Installation, Utilisation, FAQ).
-
-## Ce qui a changé
-
-- Frontmatter : `argument-hint` supprimé, `version`/`license` ajoutés.
-- `${CLAUDE_SKILL_DIR}` remplacé par le chemin d'installation `~/.hermes/skills/<skill>/`.
-- `$ARGUMENTS` remplacé par la formulation Hermes (skills activées par contexte).
-- Agent tool / Task de Claude Code remplacé par `delegate_task` de Hermes dans `founder-board` et `founder-consumer` (réécrits) ; les 9 autres skills sont patchés avec une note Hermes.
-- Notes de permissions Claude Code supprimées.
+---
 
 ## Installation
+
+Prérequis : [Hermes Agent](https://hermes-agent.nousresearch.com/docs) fonctionnel et Python 3.8+ (aucune dépendance à installer via pip).
 
 ```bash
 git clone https://github.com/Tophe-Factory/founder-skill-hermes.git
 cp -r founder-skill-hermes/skills/founder-* ~/.hermes/skills/
 ```
 
-Python 3.8+ requis pour les scripts (`panel.py`, `unit_economics.py`, `van_westendorp.py`, `compile.py`), rien à installer via pip.
+Les skills s'activent ensuite par contexte : il suffit de décrire son idée et de demander de la tester.
 
-## Les 11 skills
+## Les onze skills
 
-- `founder-board` : conseil d'administration (lenses Offers / Monopoly / Product)
-- `founder-competitors` : cartographie des concurrents
-- `founder-consumer` : panel de 100 acheteurs simulés
-- `founder-pricing` : stratégie de prix (Van Westendorp)
-- `founder-offer` : architecture de l'offre
-- `founder-cfo` : économie unitaire, trésorerie
-- `founder-marketing` : campagne de lancement
-- `founder-brand` : nom et marque
-- `founder-ops` : opérations, fournisseurs, risques
-- `founder-launch` : plan de lancement
-- `founder-plan` : compilation du pack
+| Skill | Rôle | Sortie principale |
+|---|---|---|
+| `founder-board` | Conseil d'administration (lenses Offers / Monopoly / Product) | Vote FUND / FUND IF / PASS dans `founder/board.md` |
+| `founder-competitors` | Éclaireur concurrentiel | Carte des concurrents, prix, plaintes clients, faits sourcés |
+| `founder-consumer` | Panel de consommateurs | 100 acheteurs simulés (20 en `--quick`) : taux d'achat, objections, prix |
+| `founder-pricing` | Stratégie de prix | Fourchette acceptable (Van Westendorp) confrontée à la marge |
+| `founder-offer` | Architecture de l'offre | Offre stack : bonuses, garantie, urgence, nom |
+| `founder-cfo` | Directeur financier | Marge réelle, seuil de rentabilité, année 1, trésorerie |
+| `founder-marketing` | Direction marketing | Positionnement, canaux, campagne 30 jours, coût d'acquisition max |
+| `founder-brand` | Identité de marque | Noms candidats, vérifications à mener, ton, promesse |
+| `founder-ops` | Opérations | Fournisseurs, routines, licences, registre des risques |
+| `founder-launch` | Jour J | Checklist de lancement |
+| `founder-plan` | Compilation | Plan complet assemblé depuis tout le dossier `founder/` |
 
-## Ordre du pack
+**Ordre recommandé** :
 
-board -> competitors -> consumer -> pricing -> offer -> cfo -> marketing -> brand -> ops -> launch -> plan
+```text
+board → competitors → consumer → pricing → offer → cfo → marketing → brand → ops → launch → plan
+```
 
-Chaque skill peut aussi tourner seule ; chacune lit ce qui existe déjà dans `founder/`.
+Chaque skill écrit dans `founder/` à la racine du projet et suggère la suivante ; chacune peut aussi tourner seule en lisant ce qui existe déjà.
 
-## Notes Hermes
+## Ce qui a changé par rapport à l'original
 
-- `delegate_task` lance jusqu'à 10 sous-agents concurrents par défaut (`delegation.max_children`).
-- En session one-shot (`hermes chat -q`), le plafond est `delegation.oneshot_max_children` (2 par défaut) : lancer board et panel depuis une session interactive, ou relever le plafond.
-- Avant un run à 100 acheteurs : ~10 appels modèle simultanés par vague, vérifier la capacité du backend self-hosted, sinon `--quick` (20 acheteurs).
+- `delegate_task` de Hermes remplace le mode sub-agent de Claude Code (`founder-board` et `founder-consumer` réécrits en conséquence)
+- Chemins de fichiers systématiquement en `~/.hermes/skills/`
+- Retrait des spécificités Claude Code : `argument-hint`, `$ARGUMENTS`
+- Scripts Python originaux conservés tels quels : `panel.py`, `unit_economics.py`, `van_westendorp.py`, `compile.py`
 
-## Crédits
+## Notes Hermes (self-hosted)
 
-Projet original : [Jakeschincariol/founder-skill](https://github.com/Jakeschincariol/founder-skill) (MIT). Le fichier LICENSE est celui de l'original, conservé tel quel. Les dossiers `.claude-plugin` et `tests` de l'original (spécifiques à Claude Code) ne sont pas repris.
+- `delegate_task` lance jusqu'à 10 sous-agents concurrents par défaut (`delegation.max_children`)
+- En session one-shot (`hermes chat -q`), le plafond est `delegation.oneshot_max_children` (2 par défaut) : lancer board et panel depuis une session interactive, ou relever le plafond dans `config.yaml`
+- Un panel à 100 acheteurs représente 10 vagues d'environ 10 appels modèle simultanés : vérifier la capacité du backend, sinon démarrer avec `--quick` (20 acheteurs)
+- Les sous-agents demandent l'approbation de leurs écritures ; répondre dans le chat d'origine
+
+## Limites honnêtes
+
+Les acheteurs simulés sont bons pour révéler des objections et des segments, mauvais pour prédire une conversion réelle : le taux d'achat se lit comme une **borne supérieure**. Confirmer les grandes décisions avec de vrais gens (liste d'attente, pré-vente, landing page avec prix). Ne jamais présenter une citation du panel comme un témoignage client.
+
+## Crédits et licence
+
+Projet original : [Jakeschincariol/founder-skill](https://github.com/Jakeschincariol/founder-skill), licence MIT (fichier `LICENSE`, conservé tel quel). Les dossiers `.claude-plugin` et `tests` de l'original, spécifiques à Claude Code, ne sont pas repris.
