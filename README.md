@@ -19,7 +19,7 @@ Documentation complète pour démarrer avec Hermes : voir [`docs/wiki/`](docs/wi
 ## Installation
 
 ```bash
-git clone https://github.com/TopheC/founder-skill-hermes.git
+git clone https://github.com/Tophe-Factory/founder-skill-hermes.git
 cp -r founder-skill-hermes/skills/founder-* ~/.hermes/skills/
 ```
 
