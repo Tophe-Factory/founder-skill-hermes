@@ -1,22 +1,37 @@
-# Founder skill pour Hermes Agent
+# 🚀 Founder skill pour Hermes Agent
 
-Ce dépôt contient **11 skills** qui transforment Hermes Agent en équipe de conseil pour tester un business **avant** de le lancer : un conseil d'administration, une direction marketing, un directeur financier, et un panel de 100 acheteurs simulés.
+> **11 skills qui transforment Hermes Agent en équipe de conseil**, pour tester une idée de business *avant* de dépenser un euro.
 
-C'est une version adaptée du projet [Jakeschincariol/founder-skill](https://github.com/Jakeschincariol/founder-skill) (MIT), conçue à l'origine pour Claude Code et patchée ici pour **Hermes Agent**.
+Bienvenue 👋 — ce guide s'adresse aux **débutants sur Hermes** : aucune commande à retenir, aucun code à écrire. Tu parles, le pack travaille.
 
-## À qui s'adresse ce pack
+Basé sur [Jakeschincariol/founder-skill](https://github.com/Jakeschincariol/founder-skill) (MIT), conçu pour Claude Code, **adapté ici pour Hermes Agent** dans une versions self-hosted friendly.
 
-- Des **débutants sur Hermes** qui veulent des skills prêtes à l'emploi, sans rien avoir à coder
-- Des porteurs de projet qui veulent **débusquer les angles morts** de leur idée avant de dépenser
-- Des utilisateurs **self-hosted** (Hermes sur son propre serveur, modèles locaux ou endpoint au choix)
+---
 
-## Par où commencer
+## 🎯 Le pack en 30 secondes
 
-1. **[1. Description](1.-Description)** : ce qu'est une skill Hermes, et ce que fait chacune des 11
-2. **[2. Installation](2.-Installation)** : copier le pack dans Hermes en 3 commandes
-3. **[3. Utilisation](3.-Utilisation)** : faire tourner son premier board sans rien retenir
-4. **[4. FAQ et limites](4.-FAQ-et-limites)** : questions de débutant, pièges, limites des simulations
+Imagine que tu réunisses une équipe de cadre pour ta future boîte :
 
-## En une phrase
+| 👤 Le collègue | 🧠 Son boulot |
+|---|---|
+| 🏛️ **Le board** | Trois administrateurs notent ton idée, pointent ce qui la tuerait... et votent |
+| 🕵️ **L'éclaireur** | Cartographie tes concurrents, leurs prix, leurs clients mécontents |
+| 🛒 **Le panel** | 100 acheteurs simulés essaient de percuter ton offre... et disent pourquoi ils passent |
+| 💰 **Le CFO** | Calcule ta marge réelle et la trésorerie nécessaire pour survivre un an |
+| 📣 **Le marketing** | Positionnement, canaux, campagne de lancement datée sur 30 jours |
+| 🎨 **La marque**, 🚚 **les opérations**, 📅 **le jour J**... | Le reste de l'équipe, jusqu'au plan complet |
 
-Décrits comme des collègues : *avant de signer un bail ou d'acheter un nom de domaine*, fais passer ton idée devant le board, confronte-la à la concurrence, à 100 acheteurs simulés, puis à un CFO qui calcule ta vraie marge.
+## 🗺️ Par où commencer
+
+1. **[1. Description](1.-Description)** — ce qu'est une skill Hermes, et le rôle de chacun
+2. **[2. Installation](2.-Installation)** — ✅ 3 commandes, 2 minutes, zéro dépendance
+3. **[3. Utilisation](3.-Utilisation)** — ✨ ton premier board, juste en parlant
+4. **[4. FAQ et limites](4.-FAQ-et-limites)** — les questions que tout le monde se pose, et ce que le pack *ne* fait pas
+
+## 💡 La promesse en une phrase
+
+> *Avant de signer un bail ou d'acheter un nom de domaine, fais passer ton idée devant un board, affronte 100 acheteurs simulés, puis laisse un CFO calculer ta vraie marge.*
+
+---
+
+*Prêt·e ? Direction [l'installation](2.-Installation) — reviens ici quand tu veux faire le tour du propriétaire.* 🏁
